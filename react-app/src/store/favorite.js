@@ -72,11 +72,13 @@ export const deleteFavorites = favoriteId => async dispatch => {
         method: 'DELETE',
     })
 
+    const data = await res.json();
     if (res.ok) {
         dispatch(removeFavorite(favoriteId))
     } else {
         throw res
     };
+    return data
 }
 
 const initialState = {}
